@@ -1,0 +1,46 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %}
+Show CV
+{% endblock %}
+
+{% block body_content %}
+<div class="container">
+    <h1>This is CV Form</h1>
+    <div class="card-header">
+        <font size="14" face="Times New Roman" class="card-title">{{ users.first_name }} {{ users.middle_name }} {{ users.last_name }}</font>
+    </div>
+    <div class="card-body">
+        <p>
+            <font face="Verdana" size="6"><h3>Contact Number:</h3>
+            <u><h5>{{ users.contact }}</h5></u></font>
+        </p>
+        <br>
+        <p>
+            <font face="Verdana" size="6"><h3>Email:</h3>
+            <u><h5>{{ users.email }}</h5></u></font>
+        </p>
+        <br>
+        <p>
+            <font face="Verdana" size="6"><h3>Date of Birth:</h3>
+            <u><h5>{{ users.dob }}</h5></u></font>
+        </p>
+        <br>
+        <p>
+            <font face="Verdana" size="6"><h3>Qualification:</h3>
+            <u><h5>{{ users.quali }}</h5></u></font>
+        </p>
+        <br>
+        <p>
+            <font face="Verdana" size="6"><h3>Hobby:</h3>
+            <u><h5>{{ users.hobby }}</h5></u></font>
+        </p>
+        <br>
+        <p>
+            <font face="Verdana" size="6"><h3>Objective:</h3>
+            <u><h5>{{ users.objective }}</h5></u></font>
+        </p>
+        <br>
+    </div>
+</div>
+{% endblock %}

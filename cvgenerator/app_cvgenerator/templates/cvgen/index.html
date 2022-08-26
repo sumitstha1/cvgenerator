@@ -1,0 +1,44 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %}
+Create CV
+{% endblock %}
+{% block custom_css %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+{% endblock %}
+
+{% block body_content %}
+<h3>This is CV User List</h3>
+<table class="table table-hover table-dark table-striped">
+    <thead>
+        <tr >
+            <th >S.N</th>
+            <th >First Name</th>
+            <th >Middle Name</th>
+            <th >Last Name</th>
+            <th >Contact</th>
+            <th >Email</th>
+            <th >DOB</th>
+            <th >Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for user in users %}
+        <tr >
+            <td >{{ forloop.counter }}</td>
+            <td >{{ user.first_name }}</td>
+            <td >{{ user.middle_name }}</td>
+            <td >{{ user.last_name }}</td>
+            <td >{{ user.contact }}</td>
+            <td >{{ user.email }}</td>
+            <td >{{ user.dob }}</td>
+            <td >
+                <a href="{% url 'cv.show' user.id %}"><i class="fa-solid fa-eye"></i></a>
+                <a href="{% url 'cv.edit' user.id %}"><i class="fa-solid fa-pencil"></i></a>
+                <a href="{% url 'cv.delete' user.id %}"><i class="fa-solid fa-trash"></i></a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,67 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %}
+Edit CV
+{% endblock %}
+
+{% block body_content %}
+This is Edit page
+
+<div class="container">
+    <form action="{% url 'cv.update' %}" method="POST">
+        {% csrf_token %}
+        <input type="hidden" name="id" value={{ user.id }}>
+
+        <div class="form-group mb-2">
+            <p><font 
+        </div>
+        <br>
+        <div class="form-group mb-2">
+            <label for="first_name">First Name:</label>
+            <input type="text" class="form-control" value="{{ user.first_name }}" name="first_name">
+        </div>
+        <br>
+        <div class="form-group mb-2">
+            <label for="middle_name">Middle Name:</label>
+            <input type="text" class="form-control" value="{{ user.middle_name }}" name="middle_name">
+        </div>
+        <br>
+        <div class="form-group mb-2">
+            <label for="last_name">Last Name:</label>
+            <input type="text" class="form-control" value="{{ user.last_name }}" name="last_name">
+        </div>
+        <br>
+        <div class="form-group mb-2">
+            <label for="contact">Contact Number:</label>
+            <input type="text" class="form-control" value="{{ user.contact }}" name="contact">
+        </div>
+        <br>        
+        <div class="form-group mb-2">
+            <label for="email">Email:</label>
+            <input type="text" class="form-control" value="{{ user.email }}" name="email">
+        </div>
+        <br>            
+        <div class="form-group mb-2">
+            <label for="dob">Date of Birth:<p>*<font size="2">(Please re-enter your date of birth 'this is important')</font></p></label>
+            <input type="Date" class="form-control" value="{{ user.dob }}" name="dob">
+        </div>
+        <br>
+        <div class="form-group mb-2">
+            <label for="quali">Qualification:</label>
+            <input type="text" class="form-control" value="{{ user.quali }}" name="quali">
+        </div>
+        <br>
+        <div class="form-group mb-2">
+            <label for="hobby">Hobby:<p><font size='2'>(Separate your hobby with comma ',' if more than one)</font><p></label>
+            <input type="text" class="form-control" value="{{ user.hobby }}" name="hobby">
+        </div>
+        <br>
+        <div class="form-group mb-2">
+            <label for="objective">Objective:</label>
+            <input type="text" class="form-control" value="{{ user.objective }}" name="objective">
+        </div>
+        <br>
+        <button type="submit" class="btn btn-primary">Update</button>
+
+    </form>
+{% endblock %}

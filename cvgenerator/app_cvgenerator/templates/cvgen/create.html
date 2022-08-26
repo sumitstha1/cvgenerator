@@ -1,0 +1,23 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %}
+Create CV
+{% endblock %}
+
+{% block body_content %}
+<div class='container'>
+    {% if msg %}
+    <div class="alert alert-success" role="alert">
+        {{ msg }}
+    </div> 
+    {% endif %}
+    
+    <h3>This is Create page</h3>
+    
+    <form action='#' method='POST'>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type='submit' value='ADD NEW' class='btn btn-outline-primary'>
+    </form>
+</div>
+{% endblock %}
